@@ -29,7 +29,6 @@
     <appender-ref ref="STDOUT" />
   </appender>
 
-  <logger name="application" level="DEBUG" />
   <logger name="com.hugov.fuyuki.sheets" level="INFO" />
 
   <root level="WARN">
