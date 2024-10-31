@@ -1,0 +1,7 @@
+target/
+.metals/
+.bloop/
+.vscode/
+logs/
+project/
+src/main/resources/ressources/client_secret*.json
