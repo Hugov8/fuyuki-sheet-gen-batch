@@ -1,17 +1,11 @@
 package com.hugov.fuyuki.sheets.model.connecteur.sheets;
 
-import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.services.sheets.v4.Sheets;
 import com.google.api.client.googleapis.services.AbstractGoogleClientRequest
 import com.google.api.client.googleapis.json.GoogleJsonResponseException
-
-import java.io.IOException;
-import java.security.GeneralSecurityException;
-import com.google.api.services.sheets.v4.model.BatchUpdateValuesRequest
 import com.hugov.fuyuki.sheets.model.exception.ConnexionException
-import com.typesafe.scalalogging._
 import com.hugov.fuyuki.sheets.model.util.Logging
 
 object SheetsServiceUtil {

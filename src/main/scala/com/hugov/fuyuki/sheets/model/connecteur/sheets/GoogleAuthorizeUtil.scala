@@ -31,7 +31,9 @@ object GoogleAuthorizeUtil {
 
         val scopes: List[String] = Arrays.asList(SheetsScopes.SPREADSHEETS);
 
-        val flow: GoogleAuthorizationCodeFlow = new GoogleAuthorizationCodeFlow.Builder(GoogleNetHttpTransport.newTrustedTransport(), JacksonFactory.getDefaultInstance(), clientSecrets, scopes).setDataStoreFactory(new MemoryDataStoreFactory())
+        val flow: GoogleAuthorizationCodeFlow = 
+            new GoogleAuthorizationCodeFlow.Builder(GoogleNetHttpTransport.newTrustedTransport(), JacksonFactory.getDefaultInstance(), clientSecrets, scopes)
+                .setDataStoreFactory(new MemoryDataStoreFactory())
                 .setAccessType("offline").build();
         return new AuthorizationCodeInstalledApp(flow, new LocalServerReceiver()).authorize("user");
     }

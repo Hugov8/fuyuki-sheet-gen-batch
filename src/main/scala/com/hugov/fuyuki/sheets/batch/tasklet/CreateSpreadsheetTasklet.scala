@@ -13,7 +13,7 @@ class CreateSpreadsheetTasklet(val mail: String, val idWar: String) extends Task
   override def execute(contribution: StepContribution, chunkContext: ChunkContext): RepeatStatus = {
     val spreadSheet = SpreadSheetUtil.createSpreadSheet(idWar)
     DriveUtil.shareSpreadsheet(spreadSheet.getSpreadsheetId(), mail)
-    chunkContext.getStepContext().getJobExecutionContext().put(BatchConstantes.ID_SPREADSHEET, spreadSheet.getSpreadsheetId())
+    //chunkContext.getStepContext().getJobExecutionContext().put(BatchConstantes.ID_SPREADSHEET, spreadSheet.getSpreadsheetId())
     RepeatStatus.FINISHED
   }
 

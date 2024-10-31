@@ -1,10 +1,5 @@
 package com.hugov.fuyuki.sheets.model.connecteur
 
-import com.hugov.fuyuki.sheets.model.data.Row
-import com.hugov.fuyuki.sheets.model.data.Line
-import com.hugov.fuyuki.sheets.model.data.Master
-import com.hugov.fuyuki.sheets.model.data.NPC
-import com.hugov.fuyuki.sheets.model.data.Character
 import com.hugov.fuyuki.sheets.model.parser.RayshiftParser
 import com.hugov.fuyuki.sheets.model.exception.ApplicationException
 

@@ -11,7 +11,6 @@ import com.hugov.fuyuki.sheets.model.connecteur.sheets.SpreadSheetUtil
 import com.google.api.services.sheets.v4.model.Spreadsheet
 import com.hugov.fuyuki.sheets.model.connecteur.sheets.UpdateSheetUtil
 import com.hugov.fuyuki.sheets.model.connecteur.sheets.DriveUtil
-import com.typesafe.scalalogging._
 import com.hugov.fuyuki.sheets.model.connecteur.ScriptRequestAtlas
 import com.hugov.fuyuki.sheets.model.parser.ParserAssembler
 import com.hugov.fuyuki.sheets.model.util.Logging

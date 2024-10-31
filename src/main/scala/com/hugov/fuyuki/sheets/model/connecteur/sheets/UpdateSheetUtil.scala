@@ -3,11 +3,9 @@ package com.hugov.fuyuki.sheets.model.connecteur.sheets
 import com.hugov.fuyuki.sheets.model.data.Line
 import com.hugov.fuyuki.sheets.model.data.Row
 import scala.jdk.CollectionConverters._
-import com.google.api.services.sheets.v4.model.Sheet
 import com.google.api.services.sheets.v4.model.ValueRange
 import com.google.api.services.sheets.v4.Sheets
 import com.hugov.fuyuki.sheets.model.connecteur.sheets.SheetsServiceUtil
-import com.google.api.services.sheets.v4.model.UpdateValuesResponse
 import com.google.api.services.sheets.v4.model.Request
 import com.google.api.services.sheets.v4.model.AddSheetRequest
 import com.google.api.services.sheets.v4.model.SheetProperties
@@ -16,7 +14,6 @@ import java.util.Arrays
 import com.google.api.services.sheets.v4.model.BatchUpdateValuesResponse
 import com.google.api.services.sheets.v4.model.BatchUpdateValuesRequest
 import com.hugov.fuyuki.sheets.model.exception.ConnexionException
-import com.typesafe.scalalogging._
 import com.hugov.fuyuki.sheets.model.util.Logging
 
 trait UpdateSheetUtilAbstractForm[T] extends ExecutionSheet{

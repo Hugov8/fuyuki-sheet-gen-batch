@@ -3,30 +3,20 @@ package com.hugov.fuyuki.sheets.model.connecteur.sheets
 
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
 import com.google.api.services.drive.Drive;
-import com.google.api.services.drive.DriveScopes;
 
-import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.json.jackson2.JacksonFactory;
-import com.google.api.client.googleapis.services.AbstractGoogleClientRequest
-import com.google.api.client.googleapis.json.GoogleJsonResponseException
-
 import com.google.api.client.googleapis.batch.BatchRequest;
 
-
 import java.io.IOException;
-import java.security.GeneralSecurityException;
-import com.google.api.services.sheets.v4.model.BatchUpdateValuesRequest
 import com.hugov.fuyuki.sheets.model.exception.ConnexionException
-import com.google.api.services.drive.model.Permission;
+import com.google.api.services.drive.model.Permission
 import com.google.api.client.googleapis.batch.json.JsonBatchCallback
 import com.google.api.client.http.HttpHeaders
 import com.google.api.client.googleapis.json.GoogleJsonError
-import com.typesafe.scalalogging._
 import com.hugov.fuyuki.sheets.model.util.Logging
 
 
-object DriveUtil {
-    val logger: Logger = Logger(this.getClass())
+object DriveUtil extends Logging {
     val APPLICATION_NAME: String = "Fuyuki-Generation-Sheet-Batch"
     def getDriveService: Drive = {
         val credential = GoogleAuthorizeUtil.authorize

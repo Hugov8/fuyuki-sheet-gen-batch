@@ -4,8 +4,6 @@ import org.springframework.batch.core.step.tasklet.Tasklet
 import org.springframework.batch.core.StepContribution
 import org.springframework.batch.core.scope.context.ChunkContext
 import org.springframework.batch.repeat.RepeatStatus
-import com.hugov.fuyuki.sheets.model.connecteur.sheets.SpreadSheetUtil
-import com.hugov.fuyuki.sheets.model.connecteur.sheets.DriveUtil
 import com.hugov.fuyuki.sheets.model.connecteur.WarRequestAtlas
 import com.hugov.fuyuki.sheets.model.connecteur.WarRequest
 import com.hugov.fuyuki.sheets.batch.util.WarContext

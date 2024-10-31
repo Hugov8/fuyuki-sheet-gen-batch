@@ -1,6 +1,5 @@
 package com.hugov.fuyuki.sheets.model.connecteur
 
-import com.hugov.fuyuki.sheets.model.data.Row
 import com.hugov.fuyuki.sheets.model.parser.AtlasParser
 
 object ScriptRequestAtlas extends ScriptRequest {

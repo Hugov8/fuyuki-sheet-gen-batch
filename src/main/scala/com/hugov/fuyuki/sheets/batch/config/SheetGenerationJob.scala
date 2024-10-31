@@ -1,18 +1,11 @@
 package com.hugov.fuyuki.sheets.batch.config
 
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing
 import org.springframework.context.annotation.Bean
-import org.springframework.beans.factory.annotation.Value
 import org.springframework.batch.core.Job
 import org.springframework.batch.core.step.tasklet.Tasklet
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.batch.core.Step
 import org.springframework.batch.core.StepContribution
-import org.springframework.batch.core.scope.context.ChunkContext
-import org.springframework.batch.repeat.RepeatStatus
-import com.hugov.fuyuki.sheets.model.connecteur.sheets.SpreadSheetUtil
-import com.hugov.fuyuki.sheets.model.connecteur.sheets.DriveUtil
 import org.springframework.context.annotation.Configuration
 import org.springframework.batch.core.repository.JobRepository
 import org.springframework.batch.core.job.builder.JobBuilder
@@ -21,30 +14,15 @@ import org.springframework.transaction.PlatformTransactionManager
 import javax.sql.DataSource
 import org.springframework.transaction.TransactionManager
 import com.hugov.fuyuki.sheets.batch.tasklet.CreateSpreadsheetTasklet
-import batch.reader._
-import org.springframework.batch.item.database.JdbcCursorItemReader
-import org.springframework.batch.item.ItemReader
-import org.springframework.batch.item.ItemWriter
-import org.springframework.batch.item.ItemProcessor
-import com.hugov.fuyuki.sheets.batch.util.WarContext
-import com.hugov.fuyuki.sheets.model.data.War
-import com.hugov.fuyuki.sheets.batch.util.WarContext
-import com.hugov.fuyuki.sheets.batch.tasklet.WarSaveTasklet
-import com.hugov.fuyuki.sheets.model.data.IdRow
-import com.hugov.fuyuki.sheets.model.data.Row
-import com.hugov.fuyuki.sheets.batch.processor.RowItemProcessor
-import com.hugov.fuyuki.sheets.batch.writer.RowItemWriter
 import com.hugov.fuyuki.sheets.batch.util.BatchConstantes
 import org.springframework.batch.core.configuration.annotation.JobScope
 import org.springframework.jdbc.datasource.DriverManagerDataSource
 import org.springframework.jdbc.datasource.DataSourceTransactionManager
-import org.springframework.batch.core.configuration.annotation.JobBuilderFactory
-import org.springframework.batch.core.configuration
+import org.springframework.batch.core.configuration.support.DefaultBatchConfiguration
 import org.springframework.batch.core.launch.support.RunIdIncrementer
-import org.springframework.context.annotation.Import
 
 @Configuration
-class SheetGenerationJob extends configuration.support.DefaultBatchConfiguration {
+class SheetGenerationJob extends DefaultBatchConfiguration {
 
     val mail: String = ???
 
@@ -97,6 +75,7 @@ class SheetGenerationJob extends configuration.support.DefaultBatchConfiguration
     }
 
     @Bean
+    @JobScope
     def createSpreadSheetTasklet(): Tasklet = return new CreateSpreadsheetTasklet(mail, s"Test French")
     
 
@@ -137,16 +116,4 @@ class SheetGenerationJob extends configuration.support.DefaultBatchConfiguration
     @Bean
     def transactionManager(dataSource: DataSource): PlatformTransactionManager = new DataSourceTransactionManager(dataSource)
 
-    // @Bean
-    // def jobRegistry(): configuration.JobRegistry = new configuration.support.MapJobRegistry()
-
-    // @Bean
-    // def jobRepository(dataSource: DataSource, transactionManager: PlatformTransactionManager): JobRepository = {
-    //     val factory = new JobRepositoryFactoryBean()
-    //     factory.setDataSource(dataSource)
-    //     factory.setTransactionManager(transactionManager)
-    //     factory.setIsolationLevelForCreate("ISOLATION_SERIALIZABLE") // Niveau d'isolation pour SQLite
-    //     factory.afterPropertiesSet()
-    //     factory.getObject
-    // }
 }

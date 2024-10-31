@@ -1,10 +1,7 @@
 package com.hugov.fuyuki.sheets.model.parser
 
 import com.hugov.fuyuki.sheets.model.data._
-import com.hugov.fuyuki.sheets.model.data
-import com.hugov.fuyuki.sheets.model.exception.ConnexionException
 import com.hugov.fuyuki.sheets.model.exception.ParsingAtlasException
-import com.typesafe.scalalogging._
 import com.hugov.fuyuki.sheets.model.util.Logging
 
 object AtlasParser extends Parser[Line] with Logging {
