@@ -40,25 +40,6 @@ class SheetGenerationJob extends DefaultBatchConfiguration {
             .build()
     }
 
-    //========================================
-    // Mise en contexte de la war
-    //========================================
-    // @Bean
-    // def warContext(): WarContext = new WarContext()
-
-    // @Bean
-    // def getRowIds(miseEnContexteWar: Tasklet,
-    //     jobRepository: JobRepository, 
-    //     transactionManager: PlatformTransactionManager): Step = {
-    //         new StepBuilder("getRowIds", jobRepository)
-    //         .tasklet(miseEnContexteWar)
-    //         .transactionManager(transactionManager)
-    //         .build
-    // }
-
-    // @Bean
-    // def miseEnContexteWar(@Qualifier("warContext") warContext: WarContext): Tasklet = new WarSaveTasklet("101", warContext)
-
 
     // =======================================
     // Création et partage de la spreadsheet
@@ -69,8 +50,7 @@ class SheetGenerationJob extends DefaultBatchConfiguration {
         transactionManager: PlatformTransactionManager
         ): Step = {
         new StepBuilder("createSpreadSheet", jobRepository)
-            .tasklet(createSpreadSheetTasklet)
-            .transactionManager(transactionManager)
+            .tasklet(createSpreadSheetTasklet, transactionManager)
             .build
     }
 
@@ -82,28 +62,6 @@ class SheetGenerationJob extends DefaultBatchConfiguration {
     // =======================================
     // Création/Update des sheets
     // =======================================
-    // @Bean
-    // def updateSheet(updateSheetReader: ItemReader[IdRow],
-    //     updateSheetProcessor: ItemProcessor[IdRow, Row],
-    //     updateSheetWriter: ItemWriter[Row],
-    //     jobRepository: JobRepository, 
-    //     transactionManager: PlatformTransactionManager): Step = {
-    //         new StepBuilder("updateSheet", jobRepository).chunk[IdRow, Row](10, transactionManager)
-    //         .reader(updateSheetReader)
-    //         .processor(updateSheetProcessor)
-    //         .writer(updateSheetWriter)
-    //         .build
-    // }
-
-    // @Bean
-    // def updateSheetReader(miseEnContexteWar: WarContext) : RowIdReader = new RowIdReader(miseEnContexteWar.war.idRows)
-
-    // @Bean
-    // def updateSheetProcessor() : RowItemProcessor = new RowItemProcessor()
-
-    // @Bean
-    // @JobScope
-    // def updateSheetWriter(@Value(s"#[jobContextExecution['idSpreadsheet']]") idSpreadSheet: String) : RowItemWriter = new RowItemWriter(idSpreadSheet)
 
     @Bean
     def dataSource(): DataSource = {

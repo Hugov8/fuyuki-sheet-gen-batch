@@ -4,4 +4,5 @@ target/
 .vscode/
 logs/
 project/
-src/main/resources/ressources/client_secret*.json
+mydatabase.db
+src/main/resources/google_keys/client_secret*.json

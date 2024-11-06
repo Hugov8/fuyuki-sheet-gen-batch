@@ -26,7 +26,7 @@ import com.google.api.services.drive.DriveScopes
 
 object GoogleAuthorizeUtil {
     def authorizeUserAccount: Credential = {
-        val in: InputStream = getClass().getClassLoader().getResourceAsStream("ressources/client_secret_oauth.json")
+        val in: InputStream = getClass().getClassLoader().getResourceAsStream("google_keys/client_secret_oauth.json")
         val clientSecrets: GoogleClientSecrets = GoogleClientSecrets.load(JacksonFactory.getDefaultInstance(), new InputStreamReader(in));
 
         val scopes: List[String] = Arrays.asList(SheetsScopes.SPREADSHEETS);
@@ -39,7 +39,7 @@ object GoogleAuthorizeUtil {
     }
 
     def authorizeServiceAccount: HttpRequestInitializer = {
-        val in: InputStream = getClass().getClassLoader().getResourceAsStream("ressources/client_secret_service.json")
+        val in: InputStream = getClass().getClassLoader().getResourceAsStream("google_keys/client_secret_service.json")
 
         val scopes: List[String] = Arrays.asList(SheetsScopes.SPREADSHEETS, DriveScopes.DRIVE_FILE);
         val credentials = GoogleCredentials.fromStream(in).createScoped(scopes);//.createDelegated(mail);
